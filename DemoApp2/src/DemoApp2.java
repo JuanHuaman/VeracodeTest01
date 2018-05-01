@@ -2,6 +2,9 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+
 public class DemoApp2 {
 	public static void main(String[] args) {
 		String one = new String("abc");
@@ -43,6 +46,15 @@ public class DemoApp2 {
 		 {
 		   System.out.println("else");
 		 }
+		 
+	 
+		 try {
+				ScriptEngineManager manager = new ScriptEngineManager();
+				ScriptEngine engine = manager.getEngineByName("JavaScript");
+				engine.eval(new java.io.FileReader("resources/" + args[0] + ".js"));
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
 	}
 	private static class IntegerCache 
 	 {
@@ -52,6 +64,9 @@ public class DemoApp2 {
 	 
 	   static 
 	   {
+		   String one = new String("abc");
+		   String two = new String("abc");
+		   if (one != two) System.out.println("The two objects are not the same.");
 	     for(int i = 0; i < cache.length; i++)
 	     cache[i] = new Integer(i - 128); 
 	   }

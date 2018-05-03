@@ -54,6 +54,7 @@ public class DemoApp2 {
 				engine.eval(new java.io.FileReader("resources/" + args[0] + ".js"));
 			} catch(Exception e) {
 				e.printStackTrace();
+				
 			}
 	}
 	private static class IntegerCache 
